@@ -1,0 +1,14 @@
+.form-page {
+    margin: 2em 0;
+
+}
+
+.form-search {
+    display: flex;
+    justify-content: center;
+}
+
+.input {
+    margin-right: 1em;
+    
+}

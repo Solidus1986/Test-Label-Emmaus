@@ -1,0 +1,14 @@
+.list {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2em;
+}
+
+
+.school {
+    width: 50%;
+    border-radius: .5em;
+    margin-top: 2em;
+    background-color: rgb(132, 195, 255);
+}
