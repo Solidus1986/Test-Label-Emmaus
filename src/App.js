@@ -9,9 +9,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Test ReactJs
-        </p>  
+        <h4>
+          Test Label Emmaüs
+        </h4>  
       </header>
       <Form />
     </div>

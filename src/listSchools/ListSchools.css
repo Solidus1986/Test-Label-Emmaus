@@ -1,14 +1,100 @@
+.result {
+  margin: 1em auto;
+  width: 200px;
+  padding: 1em;
+  font-weight: bold;
+  background: rgb(21, 184, 21);
+  color: white;
+  border-radius: 60px;
+}
+
 .list {
     display: flex;
+    justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-wrap: wrap;
     margin-top: 2em;
 }
 
 
-.school {
-    width: 50%;
-    border-radius: .5em;
-    margin-top: 2em;
-    background-color: rgb(132, 195, 255);
+.card {
+
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: 210px 210px 80px;
+    grid-template-areas: "image" "text" "stats";
+  
+    border-radius: 18px;
+    background: white;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    transition: 0.5s ease;
+
+    margin:30px;
+  }
+ 
+  .card-stats {
+    grid-area: stats; 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+  
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: rgb(21, 184, 21);
+  }
+
+  .card-stats .stat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  
+    color: white;
+    padding:10px;
+  }
+
+  .card-image {
+    grid-area: image;
+    background: url("../asset/img1.jpg");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+  }
+
+  .card-text {
+    grid-area: text;
+    margin: 25px;
+  }
+  .card-text .date {
+    color: rgb(0, 0, 0);
+    font-size:13px;
+  }
+  .card-text p {
+    color: grey;
+    font-size:15px;
+    font-weight: 300;
+  }
+  .card-text h2 {
+    margin-top:0px;
+    font-size:28px;
+  }
+
+  .card:hover {
+    transform: scale(1.15);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+  }
+
+.icon {
+  height: 3em;
+  width: 3em;
+  background-image: url("../asset/icon-more.svg");
+  cursor: pointer;
+  transition: transform .5s ease-in-out;
+}
+
+.icon:hover {
+  transform: scale(1.5) rotateZ(270deg);
 }
