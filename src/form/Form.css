@@ -76,12 +76,12 @@ button {
     background-color:rgb(21, 184, 21);
     border: none;
     border-radius: 15px;
-    box-shadow: 0 5px  rgb(65, 64, 64);
+    box-shadow: 0 5px  rgb(21, 184, 21, .6);
 }
 
 button:hover {
     
-    background-color:rgb(21, 184, 21, .7);
+    background-color: #3176f8;
 }
 
 button:active {

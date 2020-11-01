@@ -21,6 +21,10 @@
     border-radius: .2em;
 }
 
+.pagination-number:active {
+    transform: scale(1.2);
+}
+
 .pagination-number:hover {
     transform: scale(1.2);
     margin: .5em .5em;
@@ -31,11 +35,13 @@ a {
     
 }
 a:link {
-    color: black;
+    color: white;
     
 }
 
+
 a:visited {
+    
     color:white;
     background-color: rgb(21, 184, 21, .4); ;
   }

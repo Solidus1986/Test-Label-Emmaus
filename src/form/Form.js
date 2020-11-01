@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState , useEffect } from 'react'
 import './Form.css'
 
 import { appKey, appID } from '../API'
@@ -28,7 +28,9 @@ function Form() {
       .then(res => res.json())
       .then(
         (result) => {
-          // console.log(result)
+          
+          
+          localStorage.setItem('result', JSON.stringify(result))
           setResults(result);
           const schoolList = result.schoolList;
           setSchools(schoolList)
@@ -44,6 +46,8 @@ function Form() {
       setValueSchools('')
   
     };
+
+  
 
     const nextPage = (pageNumber) => {
       fetch(`https://api.schooldigger.com/v1.2/schools?st=${valueStates}&q=${valueSchools}&page=${pageNumber}&appID=${appID}&appKey=${appKey}`)
@@ -64,6 +68,7 @@ function Form() {
   
     return (
       <div className="form-page">
+        {console.log(results, "localstorage")}
         <form className="form-search" onSubmit={handleSubmit}>
         <label className="field">
           <input
