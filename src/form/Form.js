@@ -1,9 +1,9 @@
 import React, { useState , useEffect } from 'react'
 import './Form.css'
 
-import { appKey, appID } from '../API'
 import ListSchools from '../listSchools/ListSchools'
 import Pagination from '../pagination/Pagination'
+import { WrappedMap } from '../map/Map'
 
 function Form() {
     
@@ -24,7 +24,8 @@ function Form() {
  
     const handleSubmit = (event) => {
       event.preventDefault();
-      fetch(`https://api.schooldigger.com/v1.2/schools?st=${valueStates}&q=${valueSchools}&appID=${appID}&appKey=${appKey}`)
+      console.log(process.env.REACT_APP_ID, "app id")
+      fetch(`https://api.schooldigger.com/v1.2/schools?st=${valueStates}&q=${valueSchools}&appID=${process.env.REACT_APP_ID}&appKey=${process.env.REACT_APP_KEY}`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -50,7 +51,7 @@ function Form() {
   
 
     const nextPage = (pageNumber) => {
-      fetch(`https://api.schooldigger.com/v1.2/schools?st=${valueStates}&q=${valueSchools}&page=${pageNumber}&appID=${appID}&appKey=${appKey}`)
+      fetch(`https://api.schooldigger.com/v1.2/schools?st=${valueStates}&q=${valueSchools}&page=${pageNumber}&appID=${process.env.REACT_APP_ID}&appKey=${process.env.REACT_APP_KEY}`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -90,10 +91,19 @@ function Form() {
           </label>
         <button type="submit">SEARCH</button>
         </form>
+        <WrappedMap
+          isMarkerShown 
+          googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_KEY}&v=3.exp&libraries=geometry,drawing,places`}
+          loadingElement={<div style={{ height: `100%` }} />}
+          containerElement={<div style={{ height: `400px` }} />}
+          mapElement={<div style={{ height: `100%` }} />}
+          schools={schools}
+          />
         <ListSchools
           results={results}
           schools={schools}
         />
+
         {results.numberOfSchools > 10 ? <Pagination pages={results.numberOfPages} nextPage={nextPage} currentPage={currentPage} /> : '' }
       </div>
     );
